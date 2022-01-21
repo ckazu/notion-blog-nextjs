@@ -11,6 +11,7 @@
 }
 
 .header {
+  font-family: 'Courier New', Courier, monospace;
   margin-bottom: 50px;
 }
 
@@ -47,20 +48,16 @@
 }
 
 .post {
-  margin-bottom: 50px;
 }
 
 .postTitle {
-  margin-bottom: 10px;
-  font-size: 1.4rem;
+  margin-left: .5em;
 }
 
 .postTitle a {
-  color: inherit;
 }
 
 .postDescription {
   margin-top: 0;
   margin-bottom: 12px;
-  opacity: 0.65;
 }

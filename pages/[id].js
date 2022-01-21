@@ -127,14 +127,16 @@ export default function Post({ page, blocks }) {
       <article className={styles.container}>
         <h1 className={styles.name}>
           <Text text={page.properties.Name.title} />
-          {page.cover &&
-            <img src={page.cover.file?.url || page.cover.external?.url} />
-          }
         </h1>
+        <time datetime={page.properties.publish_on?.date?.start}>{page.properties.publish_on?.date?.start}</time>
+        {page.cover &&
+          <img src={page.cover.file?.url || page.cover.external?.url} />
+        }
         <section>
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
+          <hr />
           <Link href="/">
             <a className={styles.back}>← Go home</a>
           </Link>

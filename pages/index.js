@@ -32,18 +32,15 @@ export default function Home({ posts }) {
             );
             return (
               <li key={post.id} className={styles.post}>
-                <h3 className={styles.postTitle}>
-                  <Link href={`/${post.id}`}>
-                    <a>
-                      <Text text={post.properties.Name.title} />
-                    </a>
-                  </Link>
-                </h3>
-
-                <p className={styles.postDescription}>{date}</p>
-                <Link href={`/${post.id}`}>
-                  <a> Read post →</a>
-                </Link>
+                <p className={styles.postDescription}>{date}
+                  <span className={styles.postTitle}>
+                    <Link href={`/${post.id}`}>
+                      <a>
+                        <Text text={post.properties.Name.title} />
+                      </a>
+                    </Link>
+                  </span>
+                </p>
               </li>
             );
           })}
