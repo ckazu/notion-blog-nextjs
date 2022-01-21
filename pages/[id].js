@@ -117,7 +117,7 @@ export default function Post({ page, blocks }) {
   return (
     <div>
       <Head>
-        <title>{page.properties.Name.title[0].plain_text}</title>
+        <title>{page.properties.Name.title[0].plain_text} | {process.env.NEXT_PUBLIC_BLOG_TITLE}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
