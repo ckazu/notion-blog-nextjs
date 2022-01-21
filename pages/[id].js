@@ -124,6 +124,9 @@ export default function Post({ page, blocks }) {
       <article className={styles.container}>
         <h1 className={styles.name}>
           <Text text={page.properties.Name.title} />
+          {page.cover &&
+            <img src={page.cover.file?.url || page.cover.external?.url} />
+          }
         </h1>
         <section>
           {blocks.map((block) => (
