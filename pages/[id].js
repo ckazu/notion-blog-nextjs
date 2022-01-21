@@ -103,6 +103,9 @@ const renderBlock = (block) => {
       return <hr key={id} />;
     case "quote":
       return <blockquote key={id}>{value.text[0].plain_text}</blockquote>;
+    case "link_preview":
+    case "bookmark":
+      return <a href={value.url}>{value.url}</a>;
     default:
       return `❌ Unsupported block (${
         type === "unsupported" ? "unsupported by Notion API" : type
