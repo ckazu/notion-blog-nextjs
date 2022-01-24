@@ -40,20 +40,6 @@
   font-weight: bold;
 }
 
-.code {
-  font-family: monospace;
-  color: rgb(192, 64, 64);
-  background-color: rgb(242, 242, 242);
-  padding: 2px 4px;
-  border-radius: 2px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .code {
-    background-color: rgb(15, 8, 28);
-  }
-}
-
 .italic {
   font-style: italic;
 }

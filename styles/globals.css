@@ -40,7 +40,8 @@ h1 {
 }
 
 pre.code {
-  background-color: #eee;
+  background-color: #f9f9f9;
+  color: #333;
   padding: 1em;
   overflow: scroll
 }
@@ -52,7 +53,8 @@ pre.code code {
 }
 
 @media (prefers-color-scheme: dark) {
-  .code {
+  pre.code {
     background-color: rgb(15, 8, 28);
+    color: #ccc;
   }
 }
