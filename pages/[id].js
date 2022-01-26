@@ -92,10 +92,15 @@ const renderBlock = (block) => {
     case "image":
       const src =
         value.type === "external" ? value.external.url : value.file.url;
+
+      const matched = src.match(/^https:\/\/s3\..*\.amazonaws\.com\/.*\/(.*\/.*\..*)\?.*$/, 'i');
+      const file_name = matched[1].replace("/", "-");
+      const image_path = `/images/${file_name}`
+
       const caption = value.caption ? value.caption[0]?.plain_text : "";
       return (
         <figure>
-          <img src={src} alt={caption} />
+          <img src={image_path} alt={caption} />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
       );
