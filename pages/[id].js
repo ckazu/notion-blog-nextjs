@@ -108,11 +108,19 @@ const renderBlock = (block) => {
       return <hr key={id} />;
     case "quote":
       return <blockquote key={id}>{value.text[0].plain_text}</blockquote>;
+    case "code":
+      return (
+        <pre className={styles.pre}>
+          <code className={styles.code_block} key={id}>
+            {value.text[0].plain_text}
+          </code>
+        </pre>
+      );
     case "file":
       const src_file =
         value.type === "external" ? value.external.url : value.file.url;
       const splitSourceArray = src_file.split("/");
-      const lastElementInArray = splitSourceArray[splitSourceArray.length - 1]
+      const lastElementInArray = splitSourceArray[splitSourceArray.length - 1];
       const caption_file = value.caption ? value.caption[0]?.plain_text : "";
       return (
         <figure>
@@ -121,9 +129,9 @@ const renderBlock = (block) => {
             <Link href={src_file} passHref>
               {lastElementInArray.split("?")[0]}
             </Link>
-          </div>
+          </div >
           {caption_file && <figcaption>{caption_file}</figcaption>}
-        </figure>
+        </figure >
       );
     case "code":
       return <pre class="code"><code>{value.text[0].text.content}</code></pre>
@@ -151,7 +159,7 @@ export default function Post({ page, blocks }) {
         <h1 className={styles.name}>
           <Text text={page.properties.Name.title} />
         </h1>
-        <time datetime={page.properties.publish_on?.date?.start}>{page.properties.publish_on?.date?.start}</time>
+        <time dateTime={page.properties.publish_on?.date?.start}>{page.properties.publish_on?.date?.start}</time>
         {page.cover &&
           <img src={page.cover.file?.url || page.cover.external?.url} />
         }
