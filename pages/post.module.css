@@ -3,6 +3,7 @@
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.5;
+  overflow-wrap: break-word;
 }
 
 .container h1 {
@@ -52,11 +53,7 @@
 }
 
 .pre {
-  background-color: rgb(242, 242, 242);
-  padding: 2px 4px;
-  margin: 20px 0;
-  line-height: 2.3;
-  border-radius: 12px;
+  line-height: 2.0;
   overflow: auto;
 }
 

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { databaseId } from "./index.js";
 import styles from "./post.module.css";
 import { TwitterTweetEmbed } from "react-twitter-embed";
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -112,9 +114,9 @@ const renderBlock = (block) => {
     case "code":
       return (
         <pre className={styles.pre}>
-          <code className={styles.code_block} key={id}>
+          <SyntaxHighlighter style={docco} key={id}>
             {value.text[0].plain_text}
-          </code>
+          </SyntaxHighlighter>
         </pre>
       );
     case "file":
