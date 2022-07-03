@@ -4,6 +4,7 @@ import { getDatabase, getPage, getBlocks } from "../lib/notion";
 import Link from "next/link";
 import { databaseId } from "./index.js";
 import styles from "./post.module.css";
+import { TwitterTweetEmbed } from "react-twitter-embed";
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -138,6 +139,13 @@ const renderBlock = (block) => {
     case "link_preview":
     case "bookmark":
       return <a href={value.url}>{value.url}</a>;
+    case "embed":
+      if (value.url && value.url.match("https://twitter.com")) {
+        const tweetId = value.url.match("https://twitter.com/.*/status/(.*)")[1]
+        return <TwitterTweetEmbed tweetId={tweetId} />
+      } else {
+        return ""
+      }
     default:
       return `❌ Unsupported block (${type === "unsupported" ? "unsupported by Notion API" : type
         })`;
