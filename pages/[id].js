@@ -5,6 +5,7 @@ import Link from "next/link";
 import { databaseId } from "./index.js";
 import styles from "./post.module.css";
 import { TwitterTweetEmbed } from "react-twitter-embed";
+import YouTube from "react-youtube";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
@@ -147,6 +148,13 @@ const renderBlock = (block) => {
         return <TwitterTweetEmbed tweetId={tweetId} />
       } else {
         return ""
+      }
+    case "video":
+      if (value.type === 'external' && value.external.url?.match("https://youtu.be")) {
+        const videoId = value.external.url.match("https://youtu.be/(.*)")[1]
+        return <YouTube videoId={videoId} />
+      } else {
+        return "";
       }
     default:
       return `❌ Unsupported block (${type === "unsupported" ? "unsupported by Notion API" : type
