@@ -7,11 +7,21 @@ import styles from "./index.module.css";
 export const databaseId = process.env.NOTION_DATABASE_ID;
 
 export default function Home({ posts }) {
+  const siteUrl = `https://${process.env.NEXT_PUBLIC_DOMAIN}`;
+  const siteTitle = process.env.NEXT_PUBLIC_BLOG_TITLE;
+  const description = process.env.NEXT_PUBLIC_META_OG_DESCRIPTION;
+
   return (
     <div>
       <Head>
         <title>{process.env.NEXT_PUBLIC_BLOG_TITLE}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content={description} />
+        <meta name="theme-color" content="#fff" />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={siteTitle} />
+        <meta property="og:description" content={description} />
       </Head>
 
       <main className={styles.container}>
@@ -57,6 +67,6 @@ export const getStaticProps = async () => {
     props: {
       posts: database,
     },
-    revalidate: 1,
+    revalidate: false,
   };
 };

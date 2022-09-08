@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
+import Footer from "./_footer"
 class MyDocument extends Document {
   render() {
     return (
@@ -27,6 +28,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </noscript>
           <Main />
           <NextScript />
+          <Footer />
         </body>
       </Html>
     )

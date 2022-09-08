@@ -34,5 +34,7 @@ yarn-error.log*
 .vercel
 
 # cache images
-/public/images/*
 !/public/images/.gitkeep
+!/public/ogp/.gitkeep
+/public/images
+/public/ogp

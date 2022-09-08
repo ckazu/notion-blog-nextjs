@@ -58,3 +58,9 @@ pre.code code {
     color: #ccc;
   }
 }
+
+footer {
+  margin: 48px auto 32px auto;
+  max-width: 800px;
+  text-align: center;
+}

@@ -4,17 +4,26 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
+    "postbuild": "next-sitemap",
     "start": "next start"
+  },
+  "browser": {
+    "fs": false,
+    "fs/promises": false
   },
   "dependencies": {
     "@notionhq/client": "^0.4.4",
     "@types/react-syntax-highlighter": "^15.5.2",
     "next": "12.0.1",
+    "next-sitemap": "^2.5.9",
+    "open-graph-scraper": "^4.11.0",
     "react": "17.x",
     "react-dom": "17.x",
+    "react-scroll-up-button": "^1.6.4",
     "react-syntax-highlighter": "^15.5.0",
     "react-twitter-embed": "^4.0.4",
-    "react-youtube": "^9.0.2"
+    "react-youtube": "^9.0.3",
+    "sharp": "^0.30.3"
   }
 }
