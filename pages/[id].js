@@ -37,6 +37,27 @@ export const Text = ({ text }) => {
   });
 };
 
+const renderNestedList = (block) => {
+  const { type } = block;
+  const value = block[type];
+  if (!value) return null;
+
+  const isNumberedList = value.children[0].type === 'numbered_list_item'
+
+  if (isNumberedList) {
+    return (
+      <ol>
+        {value.children.map((block) => renderBlock(block))}
+      </ol>
+    )
+  }
+  return (
+    <ul>
+      {value.children.map((block) => renderBlock(block))}
+    </ul>
+  )
+}
+
 const renderBlock = (block, siteTitle = "") => {
   const { type, id } = block;
   const value = block[type];
@@ -71,6 +92,7 @@ const renderBlock = (block, siteTitle = "") => {
       return (
         <li>
           <Text text={value.text} />
+          {!!value.children && renderNestedList(block)}
         </li>
       );
     case "to_do":
@@ -158,8 +180,6 @@ const renderBlock = (block, siteTitle = "") => {
           {caption_file && <figcaption>{caption_file}</figcaption>}
         </figure >
       );
-    case "code":
-      return <pre class="code"><code>{value.text[0].text.content}</code></pre>
     case "link_preview":
     case "bookmark":
       let favicon;
