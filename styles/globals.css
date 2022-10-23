@@ -13,13 +13,6 @@ body {
   color: #333;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #222;
-    color: #ccc;
-  }
-}
-
 a {
   color: rgb(0, 192, 255);
   text-decoration: none;
@@ -50,13 +43,6 @@ pre.code code {
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.8em;
   line-height: 1.2em;
-}
-
-@media (prefers-color-scheme: dark) {
-  pre.code {
-    background-color: rgb(15, 8, 28);
-    color: #ccc;
-  }
 }
 
 footer {
